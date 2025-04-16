@@ -5,7 +5,7 @@ from datetime import datetime
 
 grafiks_fails = "dienas_grafiks.json"
 
-# 1. funkcija - Ievada vārdu, uzvārdu un vecumu
+
 def ievadit_lietotaju():
     vards = input("Kā tevi sauc? (Vārds): ")
     uzvards = input("Uzvārds: ")
@@ -21,7 +21,7 @@ def ievadit_lietotaju():
         "vecums": int(vecums)
     }
 
-# 2. funkcija - Ievada dienu vai nedēļu un dienas grafiku
+
 def ievadit_dienas_grafiku():
     izvele = input("Vai vēlies ievadīt grafiku vienai dienai vai visai nedēļai? (diena/nedēļa): ").lower()
     if izvele not in ["diena", "nedēļa"]:
@@ -52,7 +52,7 @@ def ievadit_dienas_kartibu(diena):
         sys.exit()
     return kartiba
 
-# 3. funkcija - Izveido mācību plānu, balstoties uz brīvo laiku
+
 def izveidot_macibu_planu(lietotajs, grafiks):
     print("\nIzveidoju mācību laika plānu...")
 
@@ -79,7 +79,7 @@ def saglabat_json_faila(lietotajs, grafiks, macibu_plans):
         json.dump(dati, f, indent=4, ensure_ascii=False)
     print(f"\nDati saglabāti failā: {grafiks_fails}")
 
-# Programmas sākums
+
 if __name__ == "__main__":
     lietotajs = ievadit_lietotaju()
     grafiks = ievadit_dienas_grafiku()
