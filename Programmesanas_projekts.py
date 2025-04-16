@@ -1,5 +1,4 @@
 import json
-import re
 import sys
 from datetime import datetime
 
@@ -28,7 +27,7 @@ def ievadit_dienas_grafiku():
         print("Nepareizi ievadīti dati.")
         sys.exit()
 
-    dienu_saraksts = ["pirmdiena", "otrdiena", "tresdiena", "ceturtdiena", "piektdiena", "sestdiena", "svetdiena"]
+    dienu_saraksts = ["pirmdiena", "otrdiena", "trešdiena", "ceturtdiena", "piektdiena", "sestdiena", "svētdiena"]
     grafiks = {}
 
     if izvele == "diena":
@@ -47,9 +46,6 @@ def ievadit_dienas_grafiku():
 def ievadit_dienas_kartibu(diena):
     print(f"Ievadi {diena} dienas kārtību (piemēram: Skola 8:00-14:00, Brīvs 14:00-16:00, Mācības 16:00-18:00):")
     kartiba = input()
-    if not kartiba or re.search(r"[^a-zA-ZāēūīļķģčņĀĒŪĪĻĶĢČŅ0-9:,\-\s]", kartiba):
-        print("Nepareizi ievadīti dati.")
-        sys.exit()
     return kartiba
 
 
