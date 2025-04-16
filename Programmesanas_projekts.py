@@ -1,18 +1,14 @@
 import json
 import sys
-from datetime import datetime
+import datetime
 
 grafiks_fails = "dienas_grafiks.json"
 
 
 def ievadit_lietotaju():
-    vards = input("Kā tevi sauc? (Vārds): ")
-    uzvards = input("Uzvārds: ")
-    vecums = input("Cik tev ir gadi? ")
-
-    if not vards.isalpha() or not uzvards.isalpha() or not vecums.isdigit():
-        print("Nepareizi ievadīti dati.")
-        sys.exit()
+    vards = input("Kāds ir tavs vārds: ")
+    uzvards = input("Kāds ir tavs uzvārds: ")
+    vecums = input("Cik tev ir pilni gadi? ")
 
     return {
         "vards": vards,
@@ -22,7 +18,7 @@ def ievadit_lietotaju():
 
 
 def ievadit_dienas_grafiku():
-    izvele = input("Vai vēlies ievadīt grafiku vienai dienai vai visai nedēļai? (diena/nedēļa): ").lower()
+    izvele = input("Vai vēlies ievadīt grafiku vienai dienai vai visai nedēļai? (Raksti diena, nedēļa): ").lower()
     if izvele not in ["diena", "nedēļa"]:
         print("Nepareizi ievadīti dati.")
         sys.exit()
@@ -31,7 +27,7 @@ def ievadit_dienas_grafiku():
     grafiks = {}
 
     if izvele == "diena":
-        diena = input("Kurai dienai vēlies izveidot grafiku? (piem. pirmdiena): ").lower()
+        diena = input("Kurai dienai vēlies izveidot grafiku? (p. pirmdiena): ").lower()
         if diena not in dienu_saraksts:
             print("Nepareizi ievadīti dati.")
             sys.exit()
