@@ -27,7 +27,7 @@ def ievadit_dienas_grafiku():
     grafiks = {}
 
     if izvele == "diena":
-        diena = input("Kurai dienai vēlies izveidot grafiku? (p. pirmdiena): ").lower()
+        diena = input("Kurai dienai vēlies izveidot grafiku? (piemēram: pirmdiena): ").lower()
         if diena not in dienu_saraksts:
             print("Nepareizi ievadīti dati.")
             sys.exit()
