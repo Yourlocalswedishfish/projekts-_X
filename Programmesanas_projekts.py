@@ -23,17 +23,17 @@ def ievadit_dienas_grafiku():
         print("Nepareizi ievadīti dati.")
         sys.exit()
 
-    dienu_saraksts = ["pirmdiena", "otrdiena", "trešdiena", "ceturtdiena", "piektdiena", "sestdiena", "svētdiena"]
+    dienas = ["pirmdiena", "otrdiena", "trešdiena", "ceturtdiena", "piektdiena", "sestdiena", "svētdiena"]
     grafiks = {}
 
     if izvele == "diena":
-        diena = input("Kurai dienai vēlies izveidot grafiku? (p. pirmdiena): ").lower()
-        if diena not in dienu_saraksts:
+        diena = input("Kurai dienai vēlies izveidot grafiku? (pirmdiena, otrdiena, u.t.t.): ").lower()
+        if diena not in dienas:
             print("Nepareizi ievadīti dati.")
             sys.exit()
         grafiks[diena] = ievadit_dienas_kartibu(diena)
     else:
-        for diena in dienu_saraksts:
+        for diena in dienas:
             print(f"\nIevadīsim grafiku: {diena.capitalize()}")
             grafiks[diena] = ievadit_dienas_kartibu(diena)
 
@@ -52,14 +52,16 @@ def izveidot_macibu_planu(lietotajs, grafiks):
     for diena, kartiba in grafiks.items():
         if "brīvs" in kartiba.lower():
             macibu_plans[diena] = "Ieteikums: Mācīties 1-2h laikā, kad esi brīvs."
+
         elif "mācības" in kartiba.lower():
             macibu_plans[diena] = "Mācības jau ieplānotas."
+
         else:
             macibu_plans[diena] = "Nav brīva laika mācībām. Ieteikums: Pārskatīt dienas plānu."
 
-    saglabat_json_faila(lietotajs, grafiks, macibu_plans)
+    sjf(lietotajs, grafiks, macibu_plans)
 
-def saglabat_json_faila(lietotajs, grafiks, macibu_plans):
+def sjf(lietotajs, grafiks, macibu_plans):
     dati = {
         "lietotajs": lietotajs,
         "grafiks": grafiks,
