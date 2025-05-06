@@ -76,3 +76,4 @@ if __name__ == "__main__":
     lietotajs = ievadit_lietotaju()
     grafiks = ievadit_dienas_grafiku()
     izveidot_macibu_planu(lietotajs, grafiks)
+f
