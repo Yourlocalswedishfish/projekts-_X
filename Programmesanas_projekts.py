@@ -1,6 +1,5 @@
 import json
 import sys
-import datetime
 
 grafiks_fails = "dienas_grafiks.json"
 
@@ -64,7 +63,6 @@ def saglabat_json_faila(lietotajs, grafiks, macibu_plans):
         "lietotajs": lietotajs,
         "grafiks": grafiks,
         "macibu_plans": macibu_plans,
-        "izveidots": datetime.now().isoformat()
     }
 
     with open(grafiks_fails, "w", encoding="utf-8") as f:
@@ -76,4 +74,3 @@ if __name__ == "__main__":
     lietotajs = ievadit_lietotaju()
     grafiks = ievadit_dienas_grafiku()
     izveidot_macibu_planu(lietotajs, grafiks)
-f
