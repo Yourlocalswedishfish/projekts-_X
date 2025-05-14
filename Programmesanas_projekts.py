@@ -1,6 +1,5 @@
 import json
 import sys
-import datetime
 
 grafiks_fails = "dienas_grafiks.json"
 
@@ -23,17 +22,17 @@ def ievadit_dienas_grafiku():
         print("Nepareizi ievadīti dati.")
         sys.exit()
 
-    dienas = ["pirmdiena", "otrdiena", "trešdiena", "ceturtdiena", "piektdiena", "sestdiena", "svētdiena"]
+    dienu_saraksts = ["pirmdiena", "otrdiena", "trešdiena", "ceturtdiena", "piektdiena", "sestdiena", "svētdiena"]
     grafiks = {}
 
     if izvele == "diena":
-        diena = input("Kurai dienai vēlies izveidot grafiku? (pirmdiena, otrdiena, u.t.t.): ").lower()
-        if diena not in dienas:
+        diena = input("Kurai dienai vēlies izveidot grafiku? (piemēram: pirmdiena): ").lower()
+        if diena not in dienu_saraksts:
             print("Nepareizi ievadīti dati.")
             sys.exit()
         grafiks[diena] = ievadit_dienas_kartibu(diena)
     else:
-        for diena in dienas:
+        for diena in dienu_saraksts:
             print(f"\nIevadīsim grafiku: {diena.capitalize()}")
             grafiks[diena] = ievadit_dienas_kartibu(diena)
 
@@ -49,24 +48,21 @@ def izveidot_macibu_planu(lietotajs, grafiks):
     print("\nIzveidoju mācību laika plānu...")
 
     macibu_plans = {}
-    for diena, kartiba in grafiks.items():
+    for diena, kartiba in grafiks.items(): #Atgriež
         if "brīvs" in kartiba.lower():
             macibu_plans[diena] = "Ieteikums: Mācīties 1-2h laikā, kad esi brīvs."
-
         elif "mācības" in kartiba.lower():
             macibu_plans[diena] = "Mācības jau ieplānotas."
-
         else:
             macibu_plans[diena] = "Nav brīva laika mācībām. Ieteikums: Pārskatīt dienas plānu."
 
-    sjf(lietotajs, grafiks, macibu_plans)
+    saglabat_json_faila(lietotajs, grafiks, macibu_plans)
 
-def sjf(lietotajs, grafiks, macibu_plans):
+def saglabat_json_faila(lietotajs, grafiks, macibu_plans):
     dati = {
         "lietotajs": lietotajs,
         "grafiks": grafiks,
         "macibu_plans": macibu_plans,
-        "izveidots": datetime.now().isoformat()
     }
 
     with open(grafiks_fails, "w", encoding="utf-8") as f:
