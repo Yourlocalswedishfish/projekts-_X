@@ -1,14 +1,13 @@
 {
     "lietotajs": {
-        "vards": "Ernests",
-        "uzvards": "Šimkūns",
-        "vecums": 55
+        "vards": "kārlis",
+        "uzvards": "čače",
+        "vecums": 18
     },
     "grafiks": {
-        "trešdiena": "Skola 8:00-16:00, Brīvs 16:00-16:59, Treniņš 17:30-19:00"
+        "otrdiena": "skola 8:00-14:20, brīvs 14:20-18:30, treniņš 18:30-20:30, mācības 20:30-22:00"
     },
     "macibu_plans": {
-        "trešdiena": "Ieteikums: Mācīties 1-2h laikā, kad esi brīvs."
-    },
-    "izveidots": "2025-04-16T15:09:14.185811"
+        "otrdiena": "Ieteikums: Mācīties 1-2h laikā, kad esi brīvs."
+    }
 }
