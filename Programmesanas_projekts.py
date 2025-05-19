@@ -4,7 +4,7 @@ import sys
 grafiks_fails = "dienas_grafiks.json"
 
 
-def ievadit_lietotaju():
+def ievadit_lietotaju(): #Prasa lietotāja vārdu, uzvārdu un vecumu.
     vards = input("Kāds ir tavs vārds: ")
     uzvards = input("Kāds ir tavs uzvārds: ")
     vecums = input("Cik tev ir pilni gadi? ")
@@ -16,7 +16,7 @@ def ievadit_lietotaju():
     }
 
 
-def ievadit_dienas_grafiku():
+def ievadit_dienas_grafiku(): #Prasa lietotājam kādu grafiku veidos, dienas vai nedēļas grafiku.
     izvele = input("Vai vēlies ievadīt grafiku vienai dienai vai visai nedēļai? (Raksti diena, nedēļa): ").lower()
     if izvele not in ["diena", "nedēļa"]:
         print("Nepareizi ievadīti dati.")
@@ -26,7 +26,7 @@ def ievadit_dienas_grafiku():
     grafiks = {}
 
     if izvele == "diena":
-        diena = input("Kurai dienai vēlies izveidot grafiku? (piemēram: pirmdiena): ").lower()
+        diena = input("Kurai dienai vēlies izveidot grafiku? (piemēram: pirmdiena): ").lower()#Piedāvā lietotājam kurai dienai vēlās izveidot grafiku.
         if diena not in dienu_saraksts:
             print("Nepareizi ievadīti dati.")
             sys.exit()
@@ -38,13 +38,13 @@ def ievadit_dienas_grafiku():
 
     return grafiks
 
-def ievadit_dienas_kartibu(diena):
+def ievadit_dienas_kartibu(diena): #Prasa lietotājam lai ievada dienas kārtību konkrētajai dienai kuru izvēlējās cilvēks.
     print(f"Ievadi {diena} dienas kārtību (piemēram: Skola 8:00-14:00, Brīvs 14:00-16:00, Mācības 16:00-18:00):")
     kartiba = input()
     return kartiba
 
 
-def izveidot_macibu_planu(lietotajs, grafiks):
+def izveidot_macibu_planu(lietotajs, grafiks): #iesaka lietotājam kurā brīdī un kad atrast laiku mācībām.
     print("\nIzveidoju mācību laika plānu...")
 
     macibu_plans = {}
@@ -65,7 +65,7 @@ def saglabat_json_faila(lietotajs, grafiks, macibu_plans):
         "macibu_plans": macibu_plans,
     }
 
-    with open(grafiks_fails, "w", encoding="utf-8") as f:
+    with open(grafiks_fails, "w", encoding="utf-8") as f: #parnes visus datus uz json failu.
         json.dump(dati, f, indent=4, ensure_ascii=False)
     print(f"\nDati saglabāti failā: {grafiks_fails}")
 
