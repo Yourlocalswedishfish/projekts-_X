@@ -1,13 +1,13 @@
 {
     "lietotajs": {
-        "vards": "kārlis",
-        "uzvards": "čače",
-        "vecums": 18
+        "vards": "Ralfs",
+        "uzvards": "Kuzmenko",
+        "vecums": 19
     },
     "grafiks": {
-        "otrdiena": "skola 8:00-14:20, brīvs 14:20-18:30, treniņš 18:30-20:30, mācības 20:30-22:00"
+        "pirmdiena": "Skola 8:00-15:10, Brīvs 15:10-16:00, Treniņš 16:00-20:00"
     },
     "macibu_plans": {
-        "otrdiena": "Ieteikums: Mācīties 1-2h laikā, kad esi brīvs."
+        "pirmdiena": "Ieteikums: Mācīties 1-2h laikā, kad esi brīvs."
     }
 }
